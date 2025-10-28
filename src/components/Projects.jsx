@@ -7,6 +7,11 @@ import 'slick-carousel/slick/slick-theme.css'
 
 const projects = [
   {
+    title: 'SaaS Learning Management System',
+    images: ['/p1.png', '/p2.png'],
+    github: 'https://github.com/chauhanavi21/Course_Master',
+  },
+  {
     title: 'Online-Exam-Monitoring-System',
     images: ['/o1.png', '/o2.png'],
     github: 'https://github.com/chauhanavi21/Online-Exam-Monitoring-System',
@@ -20,8 +25,9 @@ const projects = [
     title: 'Attendance-Management-System',
     images: ['/a1.png', '/a2.png'],
     github: 'https://github.com/chauhanavi21/Attendance_system',
-  }
+  }, 
 ]
+
 
 const sliderSettings = {
   dots: true,
