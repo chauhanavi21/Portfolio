@@ -1,38 +1,40 @@
 import React from 'react'
-import { FaGraduationCap, FaBriefcase } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 
 const About = () => {
   return (
-    <section id="about" className="min-h-screen flex flex-col items-center justify-center text-center px-6 py-20">
-      <h2 className="text-3xl font-bold mb-8">About Me</h2>
+    <section id="about" className="min-h-screen px-6 py-20 flex justify-center items-center">
+      <div className="bg-[#2a2a2a] max-w-5xl w-full rounded-2xl p-8 md:p-12 shadow-lg flex flex-col md:flex-row gap-10 items-center">
 
-      <div className="flex flex-col lg:flex-row items-center gap-10">
-        <img
-          src="/profile.jpg"
-          alt="Avi Chauhan"
-          className="w-64 h-64 rounded-xl object-cover shadow-lg"
-        />
+        {/* Left: Image */}
+        <div className="w-full md:w-1/3">
+          <img
+            src="/avatar-placeholder.png.png"
+            alt="Avi Chauhan"
+            className="rounded-xl shadow-md w-full object-cover"
+          />
+        </div>
 
-        <div className="flex flex-col gap-6 max-w-xl">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-[#2d2d2d] p-6 rounded-xl shadow-md">
-              <FaBriefcase className="text-2xl mb-2 mx-auto" />
-              <h3 className="font-semibold text-lg">Experience</h3>
-              <p className="text-sm text-gray-300">Internships in AI, LLMs, ML & Deployment<br />4+ Projects</p>
-            </div>
-            <div className="bg-[#2d2d2d] p-6 rounded-xl shadow-md">
-              <FaGraduationCap className="text-2xl mb-2 mx-auto" />
-              <h3 className="font-semibold text-lg">Education</h3>
-              <p className="text-sm text-gray-300">
-                M.S. – University at Albany<br />
-                B.E. – Indus University
-              </p>
-            </div>
-          </div>
-
-          <p className="text-gray-400 leading-relaxed">
-            Passionate software engineer and AI developer with experience in ML, CV, React, and backend tools. I build scalable AI pipelines, web platforms, and real-time applications that solve real-world problems.
+        {/* Right: Content */}
+        <div className="w-full md:w-2/3 text-left">
+          <h2 className="text-3xl font-bold text-white mb-4">About Me 👨‍💻</h2>
+          <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
+            I’m <span className="font-semibold text-white">Avi Chauhan</span>, a software engineer and AI enthusiast
+            passionate about building impactful solutions through machine learning,
+            large language models, and web technology. I love blending tech with creativity,
+            and enjoy leading both code and community efforts.
           </p>
+
+          <p className="text-sm text-purple-300 italic mb-6">
+          Combining applied machine learning, full-stack development, and research-driven problem solving to create impactful AI solutions.
+          </p>
+
+          {/* Social links */}
+          <div className="flex gap-4 mt-2 text-white text-xl">
+            <a href="mailto:chauhanavi843@gmail.com" title="Email"><FaEnvelope /></a>
+            <a href="https://github.com/chauhanavi21" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+            <a href="https://www.linkedin.com/in/avi-chauhan-1678a4204/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+          </div>
         </div>
       </div>
     </section>

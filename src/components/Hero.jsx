@@ -15,12 +15,12 @@ const Hero = () => {
       <p className="text-gray-400 text-lg">Hello, I'm</p>
       <h1 className="text-4xl md:text-5xl font-bold mt-1">Avi Chauhan</h1>
       <h2 className="text-xl md:text-2xl text-gray-300 mt-1">
-        Software Engineer / AI Developer
+        Software Development Engineer / AI Developer
       </h2>
 
       <div className="flex flex-wrap justify-center gap-4 mt-6">
         <a
-          href="/Avi_Resume_Palantir.pdf"
+          href="/Avi_Resume.pdf"
           download
           className="border px-5 py-2 rounded hover:bg-white hover:text-black transition font-medium"
         >
