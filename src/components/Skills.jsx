@@ -2,17 +2,17 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 const skills = [
-  { title: 'Programming Languages', skills: 'Python, Java, C, C++, Shell Scripting, Linux' },
-  { title: 'Machine Learning', skills: 'Regression, Classification, Clustering, Decision Tree, Pipelines, MLOps, MLflow' },
-  { title: 'Deep Learning & GenAI', skills: 'PyTorch, TensorFlow, Keras, CNN, LLMs' },
-  { title: 'NLP', skills: 'NER, Sentiment Analysis, Transformers, Hugging Face' },
-  { title: 'Data Analysis & Visualization', skills: 'Pandas, NumPy, Matplotlib, Scikit-Learn, Power BI' },
-  { title: 'Computer Vision', skills: 'Image Classification, Model Tuning' },
-  { title: 'Web & Frameworks', skills: 'JavaScript, React.js, Node.js, Express, HTML5, CSS3, Redux, VS Code' },
-  { title: 'Tools & DevOps', skills: 'Git, GitHub, Docker, Office Suite, Open-source tools' },
-  { title: 'AWS', skills: 'SageMaker, Lambda, EC2, S3, DynamoDB, CloudWatch, SES, EventBridge' },
-  { title: 'Database & Algorithms', skills: 'MySQL, SQL Server, Algorithms & Optimization' },
-  { title: 'Soft Skills', skills: 'Communication, Critical Thinking, Presentation, Problem Solving' }
+  { title: 'Programming Languages', skills: 'Python, Java, C, C++, Bash, R, C#' },
+  { title: 'Machine Learning', skills: 'Regression, Classification, Clustering, Decision Trees, Data Preprocessing, Pipelines, CI/CD, MLOps, MLflow' },
+  { title: 'Deep Learning & Generative AI', skills: 'PyTorch, TensorFlow, Keras, CNN Model Development, LLM' },
+  { title: 'Natural Language Processing', skills: 'Text Preprocessing, NER, Sentiment Analysis, Transformers, Hugging Face' },
+  { title: 'Data Analysis & Visualization', skills: 'Pandas, NumPy, Matplotlib, Scikit-Learn, Power BI, Excel' },
+  { title: 'Computer Vision', skills: 'Customizing and Fine-Tuning Models for Image Classification' },
+  { title: 'Web Services & Frameworks', skills: 'Human-Computer Interaction, JavaScript, TypeScript, HTML5, CSS3, Ajax, React.js, React Native, Express.js, Node.js, Redux, Next.js' },
+  { title: 'Tools', skills: 'Git, GitHub, Microsoft Office Suite, Docker, Open-source tools, MATLAB' },
+  { title: 'AWS Services', skills: 'SageMaker, Lambda, EC2, S3, DynamoDB, CloudWatch, SES, EventBridge, CloudFront, EBS, EFS' },
+  { title: 'Core CS Concepts', skills: 'Data Structures, Algorithms, Operating Systems, Systems Programming' },
+  { title: 'Databases', skills: 'MySQL, SQL Server, PostgreSQL' }
 ]
 
 const Skills = () => {
