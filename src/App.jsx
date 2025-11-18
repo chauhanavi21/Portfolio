@@ -1,24 +1,14 @@
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Experience from './components/Experience'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
-import Achievements from './components/Achievements'
-import Skills from './components/Skills'
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Blog from './pages/Blog'
 
-function App() {
+const App = () => {
   return (
-    <div className="overflow-x-hidden bg-gradient-to-br from-[#1b1b1b] to-[#2d2d2d] text-white scroll-smooth">
-      <Navbar />
-      <Hero />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Achievements />
-      <Contact />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/blog" element={<Blog />} />
+    </Routes>
   )
 }
 
