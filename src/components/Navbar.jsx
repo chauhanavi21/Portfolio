@@ -1,108 +1,80 @@
 import React, { useState } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+
+// A dark themed navigation bar inspired by the original portfolio.  It
+// contains links to the various sections on the home page as well as a
+// persistent link to the blog.  The mobile menu collapses into a
+// dropdown when the viewport is narrow.  Colors are kept in a dark
+// palette to match the rest of the site.
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const navigate = useNavigate()
-  const location = useLocation()
 
-  const handleHomeClick = (e) => {
-    e.preventDefault()
-    if (location.pathname !== '/') {
-      navigate('/')
-      // Delay smooth scroll until route finishes changing
-      setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 200)
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
-    }
-  }
-
-  const handleSectionClick = (sectionId) => {
-    if (location.pathname !== '/') {
-      navigate('/')
-      setTimeout(() => {
-        const el = document.getElementById(sectionId)
-        if (el) el.scrollIntoView({ behavior: 'smooth' })
-      }, 300)
-    } else {
-      const el = document.getElementById(sectionId)
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
-    }
-    setIsOpen(false)
+  const toggleMenu = () => {
+    setIsOpen(!isOpen)
   }
 
   const navItems = [
-    { label: 'Home', onClick: handleHomeClick },
-    { label: 'About', onClick: () => handleSectionClick('about') },
-    { label: 'Experience', onClick: () => handleSectionClick('experience') },
-    { label: 'Skills', onClick: () => handleSectionClick('skills') },
-    { label: 'Projects', onClick: () => handleSectionClick('projects') },
-    { label: 'Achievements', onClick: () => handleSectionClick('achievements') },
-    { label: 'Contact', onClick: () => handleSectionClick('contact') },
+    { label: 'Home', href: '/' },
+    { label: 'About', href: '/#about' },
+    { label: 'Experience', href: '/#experience' },
+    { label: 'Skills', href: '/#skills' },
+    { label: 'Projects', href: '/#projects' },
+    { label: 'Achievements', href: '/#achievements' },
+    { label: 'Contact', href: '/#contact' },
+    { label: 'Blog', href: '/blog' }
   ]
 
   return (
-    <nav className="fixed top-0 w-full bg-[#1b1b1b]/80 backdrop-blur-md z-50 px-6 py-4 border-b border-gray-700">
-      <div className="w-full max-w-[1500px] mx-auto flex justify-between items-center">
-        {/* Logo - works as home scroll */}
+    <nav className="fixed top-0 left-0 w-full bg-[#1b1b1b] bg-opacity-95 backdrop-blur-md z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <a
           href="/"
-          onClick={handleHomeClick}
-          className="text-2xl font-bold text-white hover:text-purple-400 cursor-pointer"
+          className="text-2xl font-bold text-white hover:text-gray-300 transition-colors"
+          onClick={() => setIsOpen(false)}
         >
           Avi Chauhan
         </a>
-
-        {/* Desktop Nav */}
-        <ul className="hidden md:flex items-center space-x-6 font-medium text-white">
-          {navItems.map((item, i) => (
-            <li
-              key={i}
-              onClick={item.onClick}
-              className="hover:text-purple-400 cursor-pointer"
-            >
-              {item.label}
+        <ul className="hidden md:flex space-x-6 font-medium text-gray-300">
+          {navItems.map((item) => (
+            <li key={item.label}>
+              {item.href.startsWith('/#') || item.href === '/' ? (
+                <a href={item.href} className="hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
+                  {item.label}
+                </a>
+              ) : (
+                <a href={item.href} className="hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
+                  {item.label}
+                </a>
+              )}
             </li>
           ))}
-          <li>
-            <Link to="/blog" className="hover:text-purple-400">
-              Blog
-            </Link>
-          </li>
         </ul>
-
-        {/* Mobile Hamburger */}
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
+        <button className="md:hidden p-2" onClick={toggleMenu} aria-label="Toggle menu">
           {isOpen ? (
-            <XMarkIcon className="h-7 w-7 text-white" />
+            <XMarkIcon className="w-7 h-7 text-gray-300" />
           ) : (
-            <Bars3Icon className="h-7 w-7 text-white" />
+            <Bars3Icon className="w-7 h-7 text-gray-300" />
           )}
         </button>
       </div>
-
-      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full px-6">
-          <div className="bg-[#1f1f1f] rounded-lg shadow-lg p-6 space-y-4">
-            {navItems.map((item, i) => (
-              <p
-                key={i}
-                onClick={item.onClick}
-                className="block text-white hover:text-purple-400 font-medium cursor-pointer"
-              >
-                {item.label}
-              </p>
+        <div className="md:hidden absolute top-full left-0 w-full bg-[#1b1b1b] bg-opacity-95 backdrop-blur-md border-t border-gray-700">
+          <ul className="flex flex-col p-6 space-y-4 text-gray-300">
+            {navItems.map((item) => (
+              <li key={item.label}>
+                {item.href.startsWith('/#') || item.href === '/' ? (
+                  <a href={item.href} className="block hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
+                    {item.label}
+                  </a>
+                ) : (
+                  <a href={item.href} className="block hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
+                    {item.label}
+                  </a>
+                )}
+              </li>
             ))}
-            <Link
-              to="/blog"
-              onClick={() => setIsOpen(false)}
-              className="block text-white hover:text-purple-400 font-medium"
-            >
-              Blog
-            </Link>
-          </div>
+          </ul>
         </div>
       )}
     </nav>

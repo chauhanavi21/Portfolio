@@ -96,7 +96,7 @@ The app’s visual simplicity hides depth: modular charts powered by **Recharts*
       'This blog details the engineering behind FinVista’s real-time insights, from data pipelines to responsive front-end design.',
     content: `FinVista’s core uses an analytics pipeline that normalizes transaction data from multiple sources. A scheduled cron job aggregates daily expenses and stores summaries in a **PostgreSQL** schema. The front-end fetches this data through lightweight Next.js API routes and renders it with **Recharts** and **D3-style** transitions.
 
-For prototype purposes, I simulated datasets using **faker.js** to stress-test visual components. Performance tuning involved React memoization and incremental static regeneration for dashboards.
+For prototype purposes, I simulated datasets using faker.js to stress-test visual components. Performance tuning involved React memoization and incremental static regeneration for dashboards.
 
 On the UI side, every card and chart follows a design system defined in "shadcn/ui", ensuring brand consistency. Accessibility checks via axe-core guarantee color contrast and keyboard navigation. The architecture is ready for future integrations with Plaid or Stripe for live data.`
   },
