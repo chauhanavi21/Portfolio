@@ -1,84 +1,81 @@
-import React, { useState } from 'react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+// src/components/Navbar.jsx
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-// A dark themed navigation bar inspired by the original portfolio.  It
-// contains links to the various sections on the home page as well as a
-// persistent link to the blog.  The mobile menu collapses into a
-// dropdown when the viewport is narrow.  Colors are kept in a dark
-// palette to match the rest of the site.
+const navItems = [
+  { label: "Home", to: "/" },
+  // About removed – About content now lives on Home
+  { label: "Experience", to: "/experience" },
+  { label: "Skills", to: "/skills" },
+  { label: "Projects", to: "/projects" },
+  { label: "Achievements", to: "/achievements" },
+  { label: "Blog", to: "/blog" },
+  { label: "Contact", to: "/contact" },
+];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
-
-  const navItems = [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/#about' },
-    { label: 'Experience', href: '/#experience' },
-    { label: 'Skills', href: '/#skills' },
-    { label: 'Projects', href: '/#projects' },
-    { label: 'Achievements', href: '/#achievements' },
-    { label: 'Contact', href: '/#contact' },
-    { label: 'Blog', href: '/blog' }
-  ]
+  const baseLink =
+    "text-sm md:text-base font-medium transition-colors duration-200";
+  const activeClass = "text-[#e85a85]";
+  const inactiveClass = "text-gray-200 hover:text-white";
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-[#1b1b1b] bg-opacity-95 backdrop-blur-md z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a
-          href="/"
-          className="text-2xl font-bold text-white hover:text-gray-300 transition-colors"
-          onClick={() => setIsOpen(false)}
-        >
-          Avi Chauhan
-        </a>
-        <ul className="hidden md:flex space-x-6 font-medium text-gray-300">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#111111]/90 backdrop-blur-md border-b border-gray-800">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-10 h-16 flex items-center justify-between">
+        <NavLink to="/" className="font-semibold text-lg md:text-xl">
+          <span className="text-white">Avi</span>
+          <span className="text-[#e85a85]"> Chauhan</span>
+        </NavLink>
+
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
-            <li key={item.label}>
-              {item.href.startsWith('/#') || item.href === '/' ? (
-                <a href={item.href} className="hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
-                  {item.label}
-                </a>
-              ) : (
-                <a href={item.href} className="hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
-                  {item.label}
-                </a>
-              )}
-            </li>
+            <NavLink
+              key={item.to}
+              to={item.to}
+              end={item.to === "/"}
+              className={({ isActive }) =>
+                `${baseLink} ${isActive ? activeClass : inactiveClass}`
+              }
+            >
+              {item.label}
+            </NavLink>
           ))}
-        </ul>
-        <button className="md:hidden p-2" onClick={toggleMenu} aria-label="Toggle menu">
-          {isOpen ? (
-            <XMarkIcon className="w-7 h-7 text-gray-300" />
-          ) : (
-            <Bars3Icon className="w-7 h-7 text-gray-300" />
-          )}
+        </div>
+
+        {/* Mobile toggle */}
+        <button
+          className="md:hidden text-gray-200"
+          onClick={() => setOpen((prev) => !prev)}
+        >
+          {open ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6" />}
         </button>
       </div>
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-[#1b1b1b] bg-opacity-95 backdrop-blur-md border-t border-gray-700">
-          <ul className="flex flex-col p-6 space-y-4 text-gray-300">
+
+      {open && (
+        <div className="md:hidden bg-[#111111] border-t border-gray-800">
+          <div className="flex flex-col px-4 py-3 space-y-2">
             {navItems.map((item) => (
-              <li key={item.label}>
-                {item.href.startsWith('/#') || item.href === '/' ? (
-                  <a href={item.href} className="block hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
-                    {item.label}
-                  </a>
-                ) : (
-                  <a href={item.href} className="block hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
-                    {item.label}
-                  </a>
-                )}
-              </li>
+              <NavLink
+                key={item.to}
+                to={item.to}
+                end={item.to === "/"}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  `${baseLink} ${isActive ? activeClass : inactiveClass}`
+                }
+              >
+                {item.label}
+              </NavLink>
             ))}
-          </ul>
+          </div>
         </div>
       )}
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

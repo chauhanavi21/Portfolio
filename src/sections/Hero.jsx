@@ -19,8 +19,11 @@ const Hero = () => {
       <p className="text-gray-400 text-lg">Hello, I'm</p>
       <h1 className="text-4xl md:text-5xl font-bold mt-1 text-white">Avi Chauhan</h1>
       <h2 className="text-xl md:text-2xl text-gray-400 mt-1">
-        Software Development Engineer / AI Developer
+        Software Development Engineer / Data Analyst / Web Developer
       </h2>
+      <h3 className="text-xl md:text-2xl text-gray-400 mt-1">
+        AWS Certified Solutions Architect / AWS AI Practitioner 
+      </h3>
 
       <div className="flex flex-wrap justify-center gap-4 mt-6">
         <a
