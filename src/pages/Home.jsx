@@ -1,27 +1,21 @@
-import { motion } from "framer-motion";
+import React from "react";
 import Hero from "../sections/Hero";
 import About from "../sections/About";
-
-const pageVariants = {
-  initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -40 },
-};
+import ExperienceSection from "../sections/ExperienceSection";
+import SkillsSection from "../sections/SkillsSection";
+import ProjectsSection from "../sections/ProjectsSection";
+import AchievementsSection from "../sections/AchievementsSection";
 
 const Home = () => {
   return (
-    <motion.main
-      variants={pageVariants}
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      transition={{ duration: 0.5 }}
-      className="min-h-[calc(100vh-4rem)]"
-    >
+    <main>
       <Hero />
-
       <About />
-    </motion.main>
+      <ExperienceSection />
+      <SkillsSection />
+      <ProjectsSection />
+      <AchievementsSection />
+    </main>
   );
 };
 

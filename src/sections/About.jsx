@@ -1,45 +1,142 @@
-import React from 'react'
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import React from "react";
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { HiAcademicCap, HiCode, HiBriefcase } from "react-icons/hi";
 
-// About section: introduces the developer with a dark card containing
-// an image, descriptive text and social icons.  Colours echo the
-// original dark theme with subtle purple highlights.
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const InfoChip = ({ icon, text }) => (
+  <div className="flex items-center gap-2 px-4 py-2.5 glass-card rounded-xl text-sm text-gray-300">
+    <span className="text-base" style={{ color: "#FF8C00" }}>{icon}</span>
+    {text}
+  </div>
+);
 
 const About = () => {
   return (
-    <section id="about" className="min-h-screen px-6 py-20 flex justify-center items-center">
-      <div className="bg-[#2a2a2a] max-w-5xl w-full rounded-2xl p-8 md:p-12 shadow-lg flex flex-col md:flex-row gap-10 items-center">
-        {/* Left: Image */}
-        <div className="w-full md:w-1/3">
-          <img
-            src="/avatar-placeholder.png.png"
-            alt="Avi Chauhan"
-            className="rounded-xl shadow-md w-full object-cover"
-          />
-        </div>
-        {/* Right: Content */}
-        <div className="w-full md:w-2/3 text-left">
-          <h2 className="text-3xl font-bold text-white mb-4">About Me 👨‍💻</h2>
-          <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">
-            I’m <span className="font-semibold text-white">Avi Chauhan</span>, a software engineer and AI enthusiast
-            passionate about building impactful solutions through machine learning,
-            large language models, and web technology. I love blending tech with creativity,
-            and enjoy leading both code and community efforts.
+    <section id="about" className="relative py-16 sm:py-24 px-3 sm:px-4 overflow-x-hidden">
+      <div
+        className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-[0.07] pointer-events-none blur-3xl"
+        style={{ background: "radial-gradient(circle, #FF4D1A, transparent 70%)" }}
+      />
+
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          className="text-center mb-16"
+          variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
+        >
+          <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#FF8C00" }}>
+            Get to know me
           </p>
-          <p className="text-sm text-purple-300 italic mb-6">
-            Combining applied machine learning, full‑stack development, and research‑driven problem solving
-            to create impactful AI solutions.
-          </p>
-          {/* Social links */}
-          <div className="flex gap-4 mt-2 text-white text-xl">
-            <a href="mailto:chauhanavi843@gmail.com" title="Email"><FaEnvelope /></a>
-            <a href="https://github.com/chauhanavi21" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-            <a href="https://www.linkedin.com/in/avi-chauhan-1678a4204/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-          </div>
+          <h2 className="section-heading text-white">
+            About <span className="gradient-text">Me</span>
+          </h2>
+          <div className="section-divider" />
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Left – image */}
+          <motion.div
+            className="relative"
+            variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
+          >
+            <div className="relative mx-auto w-fit">
+              <div className="absolute -bottom-4 -right-4 w-full h-full glass-card rounded-3xl" />
+              <div
+                className="absolute -bottom-2 -right-2 w-full h-full rounded-3xl"
+                style={{ border: "1px solid rgba(255,140,0,0.2)" }}
+              />
+              <div className="relative glass-card rounded-3xl p-8 overflow-hidden">
+                <div
+                  className="absolute top-0 left-0 w-32 h-32 rounded-full blur-2xl opacity-12 pointer-events-none"
+                  style={{ background: "radial-gradient(circle, #FF4D1A, transparent)" }}
+                />
+                <img
+                  src="/profile.jpg"
+                  alt="Avi Chauhan"
+                  className="w-full max-w-xs mx-auto rounded-2xl object-cover shadow-xl"
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                    e.target.nextSibling.style.display = "flex";
+                  }}
+                />
+                <div
+                  className="w-full max-w-xs mx-auto rounded-2xl aspect-square items-center justify-center text-6xl font-bold text-white hidden"
+                  style={{ background: "linear-gradient(135deg, #FF4D1A, #FF8C00)" }}
+                >
+                  AC
+                </div>
+                {/* Floating badge */}
+                <div
+                  className="absolute -bottom-3 -left-3 glass-card rounded-2xl px-4 py-2.5 text-center shadow-xl"
+                  style={{ borderColor: "rgba(255,140,0,0.3)" }}
+                >
+                  <p className="text-xl font-bold gradient-text">15+</p>
+                  <p className="text-[10px] text-gray-400">Projects Built</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right – text */}
+          <motion.div
+            variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
+            className="space-y-6"
+          >
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-3">
+                Hi, I'm <span className="gradient-text-2">Avi Chauhan</span> 👋
+              </h3>
+              <p className="text-gray-300 leading-relaxed">
+                I'm a software engineer and AI enthusiast passionate about building impactful
+                solutions through machine learning, large language models, and modern web technology.
+                I love blending tech with creativity and enjoy leading both code and community efforts.
+              </p>
+            </div>
+
+            <p
+              className="text-sm italic border-l-2 pl-4 leading-relaxed text-gray-400"
+              style={{ borderColor: "#FF4D1A" }}
+            >
+              "Combining applied machine learning, full-stack development, and research-driven
+              problem solving to create impactful AI solutions."
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <InfoChip icon={<FaMapMarkerAlt />} text="Ahmedabad, India" />
+              <InfoChip icon={<HiAcademicCap />}  text="Computer Science Graduate" />
+              <InfoChip icon={<HiBriefcase />}     text="AI/ML & Web Dev" />
+              <InfoChip icon={<HiCode />}          text="Open to Opportunities" />
+            </div>
+
+            <div className="flex gap-3 pt-2">
+              {[
+                { href: "mailto:chauhanavi843@gmail.com",                      icon: <FaEnvelope />,  label: "Email",    color: "#FF4D1A" },
+                { href: "https://github.com/chauhanavi21",                     icon: <FaGithub />,    label: "GitHub",   color: "#FF8C00" },
+                { href: "https://www.linkedin.com/in/avi-chauhan-1678a4204/", icon: <FaLinkedin />,  label: "LinkedIn", color: "#FFD700" },
+              ].map(({ href, icon, label, color }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("mailto") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="w-10 h-10 glass-card rounded-xl flex items-center justify-center text-gray-400 text-lg transition-all"
+                  onMouseEnter={(e) => (e.currentTarget.style.color = color)}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "")}
+                >
+                  {icon}
+                </a>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;
