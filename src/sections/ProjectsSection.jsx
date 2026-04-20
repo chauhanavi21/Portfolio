@@ -11,35 +11,35 @@ const featuredProjects = [
     tech: ["Python", "FastAPI", "React", "Ollama", "WebSocket", "Vite"],
     github: "https://github.com/chauhanavi21/Self_Clawd",
     featured: true,
-    accent: "#FF4D1A",
+    accent: "#3b82f6",
   },
   {
     title: "Collaborative Whiteboard",
     description: "Local-first, real-time collaborative whiteboard using Yjs CRDTs with live cursors, offline sync, layers, comments, and E2E encryption.",
     tech: ["React", "TypeScript", "Yjs", "Konva", "Node.js", "WebSocket"],
     github: "https://github.com/chauhanavi21/WhiteBoard",
-    accent: "#FF6B35",
+    accent: "#2563eb",
   },
   {
     title: "OrbitOps",
     description: "Production-grade multi-tenant B2B SaaS with RBAC, Stripe billing, usage metering, audit logging, and background jobs.",
     tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Redis", "Stripe"],
     github: "https://github.com/chauhanavi21/Company_Saas",
-    accent: "#FF8C00",
+    accent: "#60a5fa",
   },
   {
     title: "Enterprise AI Knowledge Copilot",
     description: "Self-hosted AI knowledge platform with RAG chat, prompt registry, LLM observability, evaluation pipelines, and multi-tenant RBAC.",
     tech: ["FastAPI", "Next.js", "PostgreSQL", "pgvector", "Celery", "Redis"],
     github: "https://github.com/chauhanavi21/EnterpriseAI",
-    accent: "#FFA500",
+    accent: "#38bdf8",
   },
   {
     title: "HelixDesk",
     description: "Omnichannel customer support platform with real-time chat, SLA engine, smart routing, embeddable widget, and background workers.",
     tech: ["Next.js", "TypeScript", "Express", "PostgreSQL", "Redis", "Socket.IO"],
     github: "https://github.com/chauhanavi21/helixdesk",
-    accent: "#FFB347",
+    accent: "#818cf8",
   },
   {
     title: "FriendNest",
@@ -47,7 +47,7 @@ const featuredProjects = [
     tech: ["React", "Node.js", "MongoDB", "Stream.io"],
     github: "https://github.com/chauhanavi21/FriendNest",
     live: "https://friendnest-56q7.onrender.com/",
-    accent: "#FFD700",
+    accent: "#93c5fd",
   },
 ];
 
@@ -82,11 +82,11 @@ const ProjectsSection = () => (
   <section id="projects" className="relative py-16 sm:py-24 px-3 sm:px-4 overflow-x-hidden">
     <div
       className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-48 opacity-[0.06] pointer-events-none blur-3xl"
-      style={{ background: "linear-gradient(90deg, #FF4D1A, #FF8C00, #FFD700)" }}
+      style={{ background: "linear-gradient(90deg, #3b82f6, #60a5fa, #e2e8f0)" }}
     />
     <div className="max-w-7xl mx-auto">
       <motion.div className="text-center mb-16" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-        <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#FF8C00" }}>What I've built</p>
+        <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#93c5fd" }}>What I've built</p>
         <h2 className="section-heading text-white">Featured <span className="gradient-text">Projects</span></h2>
         <div className="section-divider" />
         <p className="text-gray-400 mt-5 text-sm max-w-xl mx-auto">
@@ -102,7 +102,7 @@ const ProjectsSection = () => (
                 {p.featured && (
                   <div
                     className="absolute top-4 right-4 px-2.5 py-1 rounded-full text-[10px] font-bold"
-                    style={{ background: "rgba(255,77,26,0.15)", border: "1px solid rgba(255,77,26,0.35)", color: "#FF4D1A" }}
+                    style={{ background: "rgba(59,130,246,0.15)", border: "1px solid rgba(59,130,246,0.35)", color: "#3b82f6" }}
                   >
                     ✦ NEW
                   </div>
@@ -156,8 +156,8 @@ const ProjectsSection = () => (
         <Link
           to="/projects"
           className="group flex items-center gap-3 px-8 py-3.5 rounded-full glass-card text-sm font-semibold text-white transition-all"
-          style={{ border: "1px solid rgba(255,77,26,0.28)" }}
-          onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,77,26,0.08)")}
+          style={{ border: "1px solid rgba(59,130,246,0.28)" }}
+          onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(59,130,246,0.08)")}
           onMouseLeave={(e) => (e.currentTarget.style.background = "")}
         >
           View All Projects

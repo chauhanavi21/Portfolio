@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { HiX, HiArrowRight, HiCalendar } from "react-icons/hi";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 
 const pageVariants = {
   initial: { opacity: 0, y: 24 },
@@ -8,19 +9,12 @@ const pageVariants = {
   exit:   { opacity: 0, y: -24 },
 };
 
-/** Renders **bold** segments as <strong> for blog body text */
-function renderWithBold(text) {
-  const parts = text.split(/(\*\*[^*]+\*\*)/g);
-  return parts.map((part, i) => {
-    if (part.startsWith("**") && part.endsWith("**")) {
-      return (
-        <strong key={i} className="font-semibold text-white/95">
-          {part.slice(2, -2)}
-        </strong>
-      );
-    }
-    return part;
-  });
+/** Removes `**markdown**` asterisks from copy so only plain text is shown */
+function stripMarkdownBold(text) {
+  if (!text) return "";
+  return text
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/\*\*/g, "");
 }
 
 const posts = [
@@ -195,9 +189,16 @@ Looking ahead, I plan to add author profiles, newsletter integration, and export
   },
 ];
 
-const accentPalette = ["#FF4D1A", "#FF8C00", "#FFA500", "#FFB347", "#FFD700", "#FF6B35"];
+const accentPalette = ["#3b82f6", "#2563eb", "#60a5fa", "#38bdf8", "#818cf8", "#93c5fd"];
 
 const Blog = () => {
+  useDocumentMeta({
+    title: "Blog — Avi Chauhan",
+    description:
+      "Writing and reflections by Avi Chauhan on AI, full-stack engineering, and real-world project lessons.",
+    canonical: "https://chauhanavi.com/blog",
+  });
+
   const [activePost, setActivePost] = useState(null);
 
   return (
@@ -215,17 +216,17 @@ const Blog = () => {
       {/* Background accent — matches Projects / Contact */}
       <div
         className="pointer-events-none absolute left-1/2 top-0 h-48 w-[min(800px,100%)] -translate-x-1/2 opacity-[0.07] blur-3xl"
-        style={{ background: "linear-gradient(90deg, #FF4D1A, #FF8C00, #FFD700)" }}
+        style={{ background: "linear-gradient(90deg, #3b82f6, #60a5fa, #e2e8f0)" }}
       />
       <div
         className="pointer-events-none absolute bottom-0 right-0 h-72 w-72 rounded-full opacity-[0.06] blur-3xl"
-        style={{ background: "radial-gradient(circle, #FF4D1A, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, #3b82f6, transparent 70%)" }}
       />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl min-w-0">
         {/* Heading */}
         <div className="mb-10 text-center sm:mb-14">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-widest sm:text-sm" style={{ color: "#FF8C00" }}>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-widest sm:text-sm" style={{ color: "#93c5fd" }}>
             Writing & reflections
           </p>
           <h1 className="section-heading text-white">
@@ -315,7 +316,7 @@ const Blog = () => {
           >
             <motion.div
               className="glass-card w-full max-w-3xl max-h-[92dvh] overflow-y-auto overscroll-contain rounded-t-3xl p-5 shadow-2xl sm:max-h-[88vh] sm:rounded-3xl sm:p-8 safe-pb"
-              style={{ borderColor: `${activePost.accent || "#FF4D1A"}25` }}
+              style={{ borderColor: `${activePost.accent || "#3b82f6"}25` }}
               initial={{ y: 48, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 48, opacity: 0 }}
@@ -352,12 +353,12 @@ const Blog = () => {
               <div className="space-y-4 text-left text-sm leading-relaxed text-gray-300 sm:text-base">
                 {activePost.content.split("\n\n").map((paragraph, i) => (
                   <p key={i} className="whitespace-pre-wrap break-words">
-                    {renderWithBold(paragraph)}
+                    {stripMarkdownBold(paragraph)}
                   </p>
                 ))}
               </div>
 
-              <div className="mt-8 flex justify-end border-t pt-6" style={{ borderColor: "rgba(255,77,26,0.12)" }}>
+              <div className="mt-8 flex justify-end border-t pt-6" style={{ borderColor: "rgba(59,130,246,0.14)" }}>
                 <button
                   type="button"
                   className="btn-primary px-6 py-2.5 text-sm font-semibold"

@@ -2,16 +2,16 @@ import React, { useRef } from "react";
 import { motion } from "framer-motion";
 
 const skillGroups = [
-  { title: "Programming Languages", icon: "⌨️", color: "#FF4D1A", items: ["Python", "Java", "C", "C++", "Bash", "R", "C#"] },
-  { title: "Machine Learning",       icon: "🧠", color: "#FF6B35", items: ["Regression", "Classification", "Clustering", "Decision Trees", "MLOps", "MLflow", "Model Evaluation"] },
-  { title: "Deep Learning & Gen AI", icon: "⚡", color: "#FF8C00", items: ["PyTorch", "TensorFlow", "Keras", "CNNs", "LLMs", "Fine-tuning"] },
-  { title: "NLP",                    icon: "💬", color: "#FFA500", items: ["Transformers", "Hugging Face", "NER", "Sentiment Analysis", "Text Preprocessing"] },
-  { title: "Data & Visualization",   icon: "📊", color: "#FFB347", items: ["Pandas", "NumPy", "Matplotlib", "Scikit-Learn", "Power BI", "Excel"] },
-  { title: "Computer Vision",        icon: "👁️", color: "#FF6B35", items: ["OpenCV", "YOLO", "Image Classification", "Object Detection", "Model Fine-tuning"] },
-  { title: "Web & Frameworks",       icon: "🌐", color: "#FF8C00", items: ["React", "Next.js", "React Native", "Node.js", "Express", "TypeScript", "Redux"] },
-  { title: "Tools & Cloud",          icon: "☁️", color: "#FF4D1A", items: ["AWS", "Docker", "Git", "GitHub", "SageMaker", "Lambda", "EC2", "S3"] },
-  { title: "Databases",              icon: "🗄️", color: "#FFD700", items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "pgvector"] },
-  { title: "CS Fundamentals",        icon: "🔬", color: "#FFC107", items: ["Data Structures", "Algorithms", "Operating Systems", "System Design"] },
+  { title: "Programming Languages", icon: "⌨️", color: "#3b82f6", items: ["Python", "Java", "C", "C++", "Bash", "R", "C#"] },
+  { title: "Machine Learning",       icon: "🧠", color: "#6366f1", items: ["Regression", "Classification", "Clustering", "Decision Trees", "MLOps", "MLflow", "Model Evaluation"] },
+  { title: "Deep Learning & Gen AI", icon: "⚡", color: "#60a5fa", items: ["PyTorch", "TensorFlow", "Keras", "CNNs", "LLMs", "Fine-tuning"] },
+  { title: "NLP",                    icon: "💬", color: "#38bdf8", items: ["Transformers", "Hugging Face", "NER", "Sentiment Analysis", "Text Preprocessing"] },
+  { title: "Data & Visualization",   icon: "📊", color: "#818cf8", items: ["Pandas", "NumPy", "Matplotlib", "Scikit-Learn", "Power BI", "Excel"] },
+  { title: "Computer Vision",        icon: "👁️", color: "#2563eb", items: ["OpenCV", "YOLO", "Image Classification", "Object Detection", "Model Fine-tuning"] },
+  { title: "Web & Frameworks",       icon: "🌐", color: "#93c5fd", items: ["React", "Next.js", "React Native", "Node.js", "Express", "TypeScript", "Redux"] },
+  { title: "Tools & Cloud",          icon: "☁️", color: "#3b82f6", items: ["AWS", "Docker", "Git", "GitHub", "SageMaker", "Lambda", "EC2", "S3"] },
+  { title: "Databases",              icon: "🗄️", color: "#a5b4fc", items: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "pgvector"] },
+  { title: "CS Fundamentals",        icon: "🔬", color: "#cbd5e1", items: ["Data Structures", "Algorithms", "Operating Systems", "System Design"] },
 ];
 
 const TiltCard = ({ children, color }) => {
@@ -50,11 +50,11 @@ const SkillsSection = () => (
   <section id="skills" className="relative py-16 sm:py-24 px-3 sm:px-4 overflow-x-hidden">
     <div
       className="absolute top-1/2 right-0 w-96 h-96 rounded-full opacity-[0.07] pointer-events-none blur-3xl"
-      style={{ background: "radial-gradient(circle, #FF8C00, transparent 70%)" }}
+      style={{ background: "radial-gradient(circle, #60a5fa, transparent 70%)" }}
     />
     <div className="max-w-7xl mx-auto">
       <motion.div className="text-center mb-16" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-        <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#FF8C00" }}>What I know</p>
+        <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#93c5fd" }}>What I know</p>
         <h2 className="section-heading text-white">Technical <span className="gradient-text">Skills</span></h2>
         <div className="section-divider" />
       </motion.div>

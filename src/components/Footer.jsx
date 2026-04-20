@@ -2,9 +2,9 @@ import React from "react";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const socialLinks = [
-  { href: "mailto:chauhanavi843@gmail.com",                     icon: <FaEnvelope />,  label: "Email",    color: "#FF4D1A" },
-  { href: "https://github.com/chauhanavi21",                    icon: <FaGithub />,    label: "GitHub",   color: "#FF8C00" },
-  { href: "https://www.linkedin.com/in/avi-chauhan-1678a4204/", icon: <FaLinkedin />,  label: "LinkedIn", color: "#FFD700" },
+  { href: "mailto:chauhanavi843@gmail.com",                     icon: <FaEnvelope />,  label: "Email",    color: "#3b82f6" },
+  { href: "https://github.com/chauhanavi21",                    icon: <FaGithub />,    label: "GitHub",   color: "#60a5fa" },
+  { href: "https://www.linkedin.com/in/avi-chauhan-1678a4204/", icon: <FaLinkedin />,  label: "LinkedIn", color: "#e2e8f0" },
 ];
 
 const Footer = () => {
@@ -13,11 +13,11 @@ const Footer = () => {
   return (
     <footer
       className="relative overflow-hidden border-t"
-      style={{ borderColor: "rgba(255,77,26,0.08)" }}
+      style={{ borderColor: "rgba(59,130,246,0.1)" }}
     >
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "linear-gradient(to top, rgba(255,77,26,0.03), transparent)" }}
+        style={{ background: "linear-gradient(to top, rgba(59,130,246,0.04), transparent)" }}
       />
       <div className="relative max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="text-center md:text-left">

@@ -10,7 +10,7 @@ const fadeUp = {
 
 const InfoChip = ({ icon, text }) => (
   <div className="flex items-center gap-2 px-4 py-2.5 glass-card rounded-xl text-sm text-gray-300">
-    <span className="text-base" style={{ color: "#FF8C00" }}>{icon}</span>
+    <span className="text-base" style={{ color: "#93c5fd" }}>{icon}</span>
     {text}
   </div>
 );
@@ -20,7 +20,7 @@ const About = () => {
     <section id="about" className="relative py-16 sm:py-24 px-3 sm:px-4 overflow-x-hidden">
       <div
         className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-[0.07] pointer-events-none blur-3xl"
-        style={{ background: "radial-gradient(circle, #FF4D1A, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, #3b82f6, transparent 70%)" }}
       />
 
       <div className="max-w-6xl mx-auto">
@@ -28,7 +28,7 @@ const About = () => {
           className="text-center mb-16"
           variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
         >
-          <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#FF8C00" }}>
+          <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#93c5fd" }}>
             Get to know me
           </p>
           <h2 className="section-heading text-white">
@@ -47,16 +47,18 @@ const About = () => {
               <div className="absolute -bottom-4 -right-4 w-full h-full glass-card rounded-3xl" />
               <div
                 className="absolute -bottom-2 -right-2 w-full h-full rounded-3xl"
-                style={{ border: "1px solid rgba(255,140,0,0.2)" }}
+                style={{ border: "1px solid rgba(59,130,246,0.22)" }}
               />
               <div className="relative glass-card rounded-3xl p-8 overflow-hidden">
                 <div
                   className="absolute top-0 left-0 w-32 h-32 rounded-full blur-2xl opacity-12 pointer-events-none"
-                  style={{ background: "radial-gradient(circle, #FF4D1A, transparent)" }}
+                  style={{ background: "radial-gradient(circle, #3b82f6, transparent)" }}
                 />
                 <img
                   src="/profile.jpg"
-                  alt="Avi Chauhan"
+                  alt="Avi Chauhan — About"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full max-w-xs mx-auto rounded-2xl object-cover shadow-xl"
                   onError={(e) => {
                     e.target.style.display = "none";
@@ -65,14 +67,14 @@ const About = () => {
                 />
                 <div
                   className="w-full max-w-xs mx-auto rounded-2xl aspect-square items-center justify-center text-6xl font-bold text-white hidden"
-                  style={{ background: "linear-gradient(135deg, #FF4D1A, #FF8C00)" }}
+                  style={{ background: "linear-gradient(135deg, #2563eb, #93c5fd)" }}
                 >
                   AC
                 </div>
                 {/* Floating badge */}
                 <div
                   className="absolute -bottom-3 -left-3 glass-card rounded-2xl px-4 py-2.5 text-center shadow-xl"
-                  style={{ borderColor: "rgba(255,140,0,0.3)" }}
+                  style={{ borderColor: "rgba(59,130,246,0.32)" }}
                 >
                   <p className="text-xl font-bold gradient-text">15+</p>
                   <p className="text-[10px] text-gray-400">Projects Built</p>
@@ -99,7 +101,7 @@ const About = () => {
 
             <p
               className="text-sm italic border-l-2 pl-4 leading-relaxed text-gray-400"
-              style={{ borderColor: "#FF4D1A" }}
+              style={{ borderColor: "#3b82f6" }}
             >
               "Combining applied machine learning, full-stack development, and research-driven
               problem solving to create impactful AI solutions."
@@ -114,9 +116,9 @@ const About = () => {
 
             <div className="flex gap-3 pt-2">
               {[
-                { href: "mailto:chauhanavi843@gmail.com",                      icon: <FaEnvelope />,  label: "Email",    color: "#FF4D1A" },
-                { href: "https://github.com/chauhanavi21",                     icon: <FaGithub />,    label: "GitHub",   color: "#FF8C00" },
-                { href: "https://www.linkedin.com/in/avi-chauhan-1678a4204/", icon: <FaLinkedin />,  label: "LinkedIn", color: "#FFD700" },
+                { href: "mailto:chauhanavi843@gmail.com",                      icon: <FaEnvelope />,  label: "Email",    color: "#3b82f6" },
+                { href: "https://github.com/chauhanavi21",                     icon: <FaGithub />,    label: "GitHub",   color: "#60a5fa" },
+                { href: "https://www.linkedin.com/in/avi-chauhan-1678a4204/", icon: <FaLinkedin />,  label: "LinkedIn", color: "#e2e8f0" },
               ].map(({ href, icon, label, color }) => (
                 <a
                   key={label}

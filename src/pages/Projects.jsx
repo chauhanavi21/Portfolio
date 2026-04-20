@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { HiSearch } from "react-icons/hi";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 
 const allProjects = [
   {
@@ -11,7 +12,7 @@ const allProjects = [
     tech: ["Python", "FastAPI", "React", "Ollama", "WebSocket", "Vite"],
     github: "https://github.com/chauhanavi21/Self_Clawd",
     featured: true,
-    accent: "#FF4D1A",
+    accent: "#3b82f6",
   },
   {
     title: "Collaborative Whiteboard",
@@ -19,7 +20,7 @@ const allProjects = [
       "A local-first, real-time collaborative whiteboard using Yjs CRDTs with live cursors, offline sync, layers, comments, and E2E encryption.",
     tech: ["React", "TypeScript", "Yjs", "Konva", "Node.js", "WebSocket"],
     github: "https://github.com/chauhanavi21/WhiteBoard",
-    accent: "#FF6B35",
+    accent: "#2563eb",
   },
   {
     title: "OrbitOps",
@@ -27,7 +28,7 @@ const allProjects = [
       "Production-grade multi-tenant B2B SaaS with RBAC, Stripe billing, usage metering, audit logging, and background jobs.",
     tech: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Redis", "Stripe"],
     github: "https://github.com/chauhanavi21/Company_Saas",
-    accent: "#FF8C00",
+    accent: "#60a5fa",
   },
   {
     title: "Enterprise AI Knowledge Copilot",
@@ -35,7 +36,7 @@ const allProjects = [
       "Self-hosted AI knowledge platform with RAG chat, prompt registry, LLM observability, evaluation pipelines, and multi-tenant RBAC.",
     tech: ["FastAPI", "Next.js", "PostgreSQL", "pgvector", "Celery", "Redis"],
     github: "https://github.com/chauhanavi21/EnterpriseAI",
-    accent: "#FFA500",
+    accent: "#38bdf8",
   },
   {
     title: "Developer Platform Portal",
@@ -43,7 +44,7 @@ const allProjects = [
       "Internal Developer Platform with Backstage, GitOps via Argo CD, Terraform EKS provisioning, polyglot microservices, and full observability.",
     tech: ["Backstage", "Terraform", "Argo CD", "AWS EKS", "GitHub Actions", "OpenTelemetry"],
     github: "https://github.com/chauhanavi21/Gitops_Portal",
-    accent: "#FFB347",
+    accent: "#818cf8",
   },
   {
     title: "HelixDesk",
@@ -51,7 +52,7 @@ const allProjects = [
       "Omnichannel customer support platform with real-time chat, SLA engine, smart routing, embeddable widget, and background workers.",
     tech: ["Next.js", "TypeScript", "Express", "PostgreSQL", "Redis", "Socket.IO"],
     github: "https://github.com/chauhanavi21/helixdesk",
-    accent: "#FF8C00",
+    accent: "#60a5fa",
   },
   {
     title: "FriendNest",
@@ -60,7 +61,7 @@ const allProjects = [
     tech: ["React", "Node.js", "MongoDB", "Stream.io"],
     github: "https://github.com/chauhanavi21/FriendNest",
     live: "https://friendnest-56q7.onrender.com/",
-    accent: "#FFD700",
+    accent: "#93c5fd",
   },
   {
     title: "FinVista",
@@ -68,7 +69,7 @@ const allProjects = [
       "A financial analytics tool providing portfolio insights, sentiment tracking, and optimization.",
     tech: ["React", "Flask", "yFinance", "PyPortfolioOpt"],
     github: "https://github.com/chauhanavi21/FinVista",
-    accent: "#FFC107",
+    accent: "#cbd5e1",
   },
   {
     title: "Online Exam Monitoring System",
@@ -76,7 +77,7 @@ const allProjects = [
       "AI-driven system for live exam supervision using facial recognition, object detection, and cheat detection.",
     tech: ["Python", "OpenCV", "React", "FastAPI"],
     github: "https://github.com/chauhanavi21/Online-Exam-Monitoring-System",
-    accent: "#FF4D1A",
+    accent: "#3b82f6",
   },
   {
     title: "Football Analysis System",
@@ -84,7 +85,7 @@ const allProjects = [
       "Vision-based football analysis engine with tracking, metrics, and performance insights.",
     tech: ["Python", "YOLO", "OpenCV", "Analytics"],
     github: "https://github.com/chauhanavi21/Football_Analysis_System",
-    accent: "#FF6B35",
+    accent: "#2563eb",
   },
   {
     title: "Attendance Management System",
@@ -92,7 +93,7 @@ const allProjects = [
       "Automated attendance tracking using face recognition and a simple dashboard.",
     tech: ["Python", "FastAPI", "SQLModel", "React"],
     github: "https://github.com/chauhanavi21/Attendance_system",
-    accent: "#FF8C00",
+    accent: "#60a5fa",
   },
   {
     title: "FinBridge",
@@ -100,7 +101,7 @@ const allProjects = [
       "Fintech dashboard integrating multiple APIs for real-time portfolio and sentiment data.",
     tech: ["Next.js", "Node.js", "MongoDB"],
     github: "https://github.com/chauhanavi21/FinBridge",
-    accent: "#FFB347",
+    accent: "#818cf8",
   },
   {
     title: "Intelligent Arts",
@@ -108,7 +109,7 @@ const allProjects = [
       "A creative AI-driven platform around books, authors, and curated content.",
     tech: ["React", "Vite", "Tailwind CSS"],
     github: "https://github.com/chauhanavi21/Intelligent-arts",
-    accent: "#FFD700",
+    accent: "#93c5fd",
   },
   {
     title: "Course Master",
@@ -116,7 +117,7 @@ const allProjects = [
       "AI-powered LMS platform with course management, automation, and companion features.",
     tech: ["Next.js", "Supabase", "PostgreSQL"],
     github: "https://github.com/chauhanavi21/Course_Master",
-    accent: "#FFA500",
+    accent: "#38bdf8",
   },
   {
     title: "InkBound",
@@ -124,7 +125,7 @@ const allProjects = [
       "Story app with genres, read-aloud support, and page-flip style reading experience.",
     tech: ["React Native", "Expo", "OpenAI"],
     github: "https://github.com/chauhanavi21/InkBound",
-    accent: "#FF6B35",
+    accent: "#2563eb",
   },
   {
     title: "QVisor",
@@ -132,7 +133,7 @@ const allProjects = [
       "Quantum-assisted visual reasoning toolkit combining computer vision and simulation.",
     tech: ["Python", "FastAPI", "Vision", "Research"],
     github: "https://github.com/chauhanavi21/Qvisor",
-    accent: "#FF4D1A",
+    accent: "#3b82f6",
   },
 ];
 
@@ -179,6 +180,13 @@ const fadeUp = {
 };
 
 const Projects = () => {
+  useDocumentMeta({
+    title: "Projects — Avi Chauhan",
+    description:
+      "All projects by Avi Chauhan — AI, full-stack, data, and systems engineering builds.",
+    canonical: "https://chauhanavi.com/projects",
+  });
+
   const [search, setSearch] = useState("");
 
   const filtered = allProjects.filter(
@@ -196,7 +204,7 @@ const Projects = () => {
       {/* Background */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-64 opacity-[0.07] pointer-events-none blur-3xl"
-        style={{ background: "linear-gradient(90deg, #FF4D1A, #FF8C00, #FFD700)" }}
+        style={{ background: "linear-gradient(90deg, #3b82f6, #60a5fa, #e2e8f0)" }}
       />
 
       <div className="max-w-7xl mx-auto">
@@ -207,7 +215,7 @@ const Projects = () => {
           initial="hidden"
           animate="show"
         >
-          <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#FF8C00" }}>
+          <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#93c5fd" }}>
             All work
           </p>
           <h1 className="section-heading text-white">

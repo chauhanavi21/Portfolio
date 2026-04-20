@@ -9,7 +9,7 @@ const experiences = [
     location: "Remote",
     period: "Jan 2024 – Apr 2024",
     type: "Internship",
-    color: "#FF4D1A",
+    color: "#3b82f6",
     description:
       "Engineered a production RAG pipeline, optimized ML model serving with ONNX/INT8, and deployed via AWS Lambda with GitHub Actions CI/CD.",
     bullets: [
@@ -26,7 +26,7 @@ const experiences = [
     location: "Ahmedabad, India",
     period: "Jun 2023 – Jul 2023",
     type: "Internship",
-    color: "#FF8C00",
+    color: "#60a5fa",
     description:
       "Fine-tuned VGG-16 on 100K+ medical images, lifting accuracy from 71% to 92%, and built preprocessing + evaluation pipelines.",
     bullets: [
@@ -42,7 +42,7 @@ const experiences = [
     location: "Vadodara, India (Remote)",
     period: "Jan 2022 – Apr 2022",
     type: "Remote Internship",
-    color: "#FFD700",
+    color: "#93c5fd",
     description: "Built responsive React components and implemented UI flows across multiple live client projects.",
     bullets: [
       "Built responsive React components and implemented new UI flows based on Figma designs across multiple live client projects.",
@@ -57,7 +57,7 @@ const experiences = [
     location: "Pune, India",
     period: "Jul 2021 – Aug 2021",
     type: "Internship",
-    color: "#FFB347",
+    color: "#38bdf8",
     description:
       "Built a portfolio website with React and Express.js—routing, reusable components, API layer, deployment, and environment setup.",
     bullets: [
@@ -74,7 +74,7 @@ const experiences = [
     location: "Ahmedabad, India",
     period: "2023 – 2024",
     type: "Volunteer",
-    color: "#FFA500",
+    color: "#818cf8",
     description: "Led and contributed to 9+ teaching and community projects as Teach Director.",
     bullets: [
       "Planned and conducted teaching sessions for underprivileged students as Teach Director across 9+ community projects.",
@@ -90,6 +90,70 @@ const fadeUp = {
   show:   { opacity: 1, y: 0, transition: { duration: 0.45 } },
 };
 
+const spineGradient = "linear-gradient(to bottom, rgba(59,130,246,0.4), rgba(96,165,250,0.22), rgba(96,165,250,0.08), transparent)";
+
+function TimelineDot({ exp, className = "" }) {
+  return (
+    <div
+      className={`shrink-0 rounded-full border-2 border-[#030712] shadow-lg ${className}`}
+      style={{ background: exp.color, boxShadow: `0 0 12px ${exp.color}85` }}
+      aria-hidden
+    />
+  );
+}
+
+function ExperienceCardButton({ exp, onOpen, className = "" }) {
+  return (
+    <button
+      type="button"
+      onClick={() => onOpen(exp)}
+      className={`group w-full min-h-0 min-w-0 touch-manipulation rounded-xl border border-transparent text-left glass-card p-4 transition-all hover:shadow-xl active:scale-[0.99] sm:rounded-2xl sm:p-5 lg:p-6 ${className}`}
+    >
+      <div className="mb-1 flex flex-col gap-2 min-[400px]:flex-row min-[400px]:items-start min-[400px]:justify-between min-[400px]:gap-3">
+        <span
+          className="w-fit min-w-0 max-w-full text-[10px] font-semibold leading-tight sm:text-xs px-2 py-1 rounded-full text-left [text-wrap:balance]"
+          style={{ background: `${exp.color}15`, color: exp.color, border: `1px solid ${exp.color}35` }}
+          title={exp.type}
+        >
+          {exp.type}
+        </span>
+        <span className="text-[10px] text-gray-500 sm:text-xs shrink-0 min-[400px]:text-right">
+          {exp.period}
+        </span>
+      </div>
+
+      <h3 className="mt-2 text-base font-bold leading-snug text-white break-words sm:text-lg">
+        {exp.role}
+      </h3>
+      <p className="text-sm font-medium break-words" style={{ color: exp.color }}>
+        {exp.company}
+      </p>
+      <p className="mb-2 text-[11px] text-gray-500 sm:mb-3 sm:text-xs">{exp.location}</p>
+      <p className="mb-3 text-xs leading-relaxed text-gray-300 sm:mb-4 sm:text-sm break-words [text-wrap:pretty]">
+        {exp.description}
+      </p>
+
+      <div className="mb-2 flex flex-wrap gap-1.5 sm:mb-3">
+        {exp.skills.slice(0, 5).map((s) => (
+          <span key={s} className="tech-badge text-[10px] sm:text-[11px]">
+            {s}
+          </span>
+        ))}
+        {exp.skills.length > 5 && (
+          <span className="tech-badge text-[10px] sm:text-[11px]">+{exp.skills.length - 5} more</span>
+        )}
+      </div>
+
+      <p
+        className="flex items-center gap-1 text-[10px] font-medium transition-all group-hover:gap-2 sm:text-xs"
+        style={{ color: exp.color }}
+      >
+        Read more <HiArrowRight className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" aria-hidden />
+      </p>
+    </button>
+  );
+}
+
 const ExperienceSection = () => {
   const [selected, setSelected] = useState(null);
 
@@ -97,18 +161,18 @@ const ExperienceSection = () => {
     <section id="experience" className="relative py-16 sm:py-24 px-3 sm:px-4 overflow-x-hidden">
       <div
         className="absolute bottom-0 left-0 w-64 sm:w-80 h-64 sm:h-80 rounded-full opacity-[0.07] pointer-events-none blur-3xl"
-        style={{ background: "radial-gradient(circle, #FF4D1A, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, #3b82f6, transparent 70%)" }}
       />
 
-      <div className="max-w-3xl mx-auto w-full min-w-0">
+      <div className="max-w-3xl md:max-w-5xl xl:max-w-6xl mx-auto w-full min-w-0 px-0 sm:px-1">
         <motion.div
-          className="text-center mb-10 sm:mb-16 px-1"
+          className="text-center mb-10 sm:mb-14 lg:mb-16 px-1"
           variants={fadeUp}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
         >
-          <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#FF8C00" }}>
+          <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#93c5fd" }}>
             Career journey
           </p>
           <h2 className="section-heading text-white">
@@ -117,78 +181,86 @@ const ExperienceSection = () => {
           <div className="section-divider" />
         </motion.div>
 
-        {/* Mobile-friendly vertical timeline: single column, line + dots, full-width cards */}
-        <div className="relative w-full min-w-0">
-          {/* Continuous vertical line */}
+        {/* ——— Mobile / small tablet: single column, spine on the left ——— */}
+        <div className="relative w-full min-w-0 md:hidden">
           <div
-            className="absolute left-[13px] sm:left-[15px] top-2 bottom-2 w-px z-0"
-            style={{ background: "linear-gradient(to bottom, #FF4D1A50, #FF8C0038, transparent)" }}
+            className="pointer-events-none absolute left-2.5 top-6 bottom-6 z-0 w-px -translate-x-1/2"
+            style={{ background: spineGradient }}
             aria-hidden
           />
-
-          <ul className="relative z-[1] space-y-6 sm:space-y-10 list-none m-0 p-0">
+          <ul className="relative z-[1] m-0 list-none space-y-5 p-0 sm:space-y-7">
             {experiences.map((exp, i) => (
               <motion.li
-                key={`${exp.company}-${i}`}
-                className="relative pl-9 sm:pl-11 min-w-0"
+                key={`m-${exp.company}-${i}`}
+                className="flex min-w-0 gap-3 sm:gap-4"
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="show"
-                viewport={{ once: true, margin: "-40px" }}
+                viewport={{ once: true, margin: "-32px" }}
               >
-                {/* Timeline dot */}
-                <div
-                  className="absolute left-[5px] sm:left-[7px] top-5 sm:top-6 z-[2] w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full border-2 border-[#080808] flex-shrink-0"
-                  style={{ background: exp.color, boxShadow: `0 0 10px ${exp.color}90` }}
-                  aria-hidden
-                />
+                <div className="relative z-[2] flex w-5 shrink-0 justify-center pt-5 sm:w-6 sm:pt-6">
+                  <TimelineDot exp={exp} className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                </div>
+                <div className="min-w-0 flex-1 pb-0.5">
+                  <ExperienceCardButton exp={exp} onOpen={setSelected} />
+                </div>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
 
-                <button
-                  type="button"
-                  onClick={() => setSelected(exp)}
-                  className="w-full min-w-0 text-left glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 group hover:shadow-xl transition-all active:scale-[0.99]"
+        {/* ——— md+: alternating cards around a centered spine ——— */}
+        <div className="relative hidden md:block w-full min-w-0 px-1 lg:px-2">
+          <div
+            className="pointer-events-none absolute left-1/2 top-8 bottom-8 z-0 w-px -translate-x-1/2"
+            style={{ background: spineGradient }}
+            aria-hidden
+          />
+          <ul className="relative z-[1] m-0 list-none p-0">
+            {experiences.map((exp, i) => {
+              const isRight = i % 2 === 0;
+              return (
+                <motion.li
+                  key={`d-${exp.company}-${i}`}
+                  className="grid grid-cols-[1fr_auto_1fr] gap-x-3 lg:gap-x-6 items-start pb-12 last:pb-4 lg:pb-14 lg:last:pb-6"
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, margin: "-40px" }}
                 >
-                  <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-3 mb-1">
-                    <span
-                      className="text-[10px] sm:text-xs font-semibold px-2 py-1 rounded-full w-fit"
-                      style={{ background: `${exp.color}15`, color: exp.color, border: `1px solid ${exp.color}35` }}
-                    >
-                      {exp.type}
-                    </span>
-                    <span className="text-[10px] sm:text-xs text-gray-500 whitespace-nowrap sm:order-last">{exp.period}</span>
-                  </div>
-
-                  <h3 className="text-base sm:text-lg font-bold text-white mt-2 mb-0.5 leading-snug break-words">
-                    {exp.role}
-                  </h3>
-                  <p className="text-sm font-medium break-words" style={{ color: exp.color }}>
-                    {exp.company}
-                  </p>
-                  <p className="text-[11px] sm:text-xs text-gray-500 mb-2 sm:mb-3">{exp.location}</p>
-                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed mb-3 sm:mb-4 break-words">
-                    {exp.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-1.5 mb-2 sm:mb-3">
-                    {exp.skills.slice(0, 5).map((s) => (
-                      <span key={s} className="tech-badge text-[10px] sm:text-[11px]">
-                        {s}
-                      </span>
-                    ))}
-                    {exp.skills.length > 5 && (
-                      <span className="tech-badge text-[10px] sm:text-[11px]">+{exp.skills.length - 5} more</span>
+                  {/* Left column */}
+                  <div
+                    className={`min-w-0 flex justify-end pt-1 lg:pt-2 ${isRight ? "pointer-events-none" : ""}`}
+                  >
+                    {!isRight && (
+                      <ExperienceCardButton
+                        exp={exp}
+                        onOpen={setSelected}
+                        className="w-full max-w-md lg:max-w-lg"
+                      />
                     )}
                   </div>
 
-                  <p
-                    className="text-[10px] sm:text-xs flex items-center gap-1 group-hover:gap-2 transition-all font-medium"
-                    style={{ color: exp.color }}
+                  {/* Center: dot on spine */}
+                  <div className="relative z-[2] flex w-6 shrink-0 flex-col items-center justify-start pt-6 lg:w-7 lg:pt-7">
+                    <TimelineDot exp={exp} className="h-4 w-4 lg:h-[18px] lg:w-[18px]" />
+                  </div>
+
+                  {/* Right column */}
+                  <div
+                    className={`min-w-0 flex justify-start pt-1 lg:pt-2 ${!isRight ? "pointer-events-none" : ""}`}
                   >
-                    Read more <HiArrowRight className="flex-shrink-0" />
-                  </p>
-                </button>
-              </motion.li>
-            ))}
+                    {isRight && (
+                      <ExperienceCardButton
+                        exp={exp}
+                        onOpen={setSelected}
+                        className="w-full max-w-md lg:max-w-lg"
+                      />
+                    )}
+                  </div>
+                </motion.li>
+              );
+            })}
           </ul>
         </div>
       </div>
@@ -196,14 +268,14 @@ const ExperienceSection = () => {
       <AnimatePresence>
         {selected && (
           <motion.div
-            className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-sm sm:px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelected(null)}
           >
             <motion.div
-              className="glass-card rounded-t-2xl sm:rounded-3xl w-full max-w-2xl max-h-[92dvh] sm:max-h-[85vh] overflow-y-auto overscroll-contain p-4 sm:p-7 shadow-2xl mt-auto sm:mt-0 safe-pb"
+              className="glass-card mt-auto w-full max-w-2xl max-h-[min(92dvh,calc(100dvh-env(safe-area-inset-bottom,0px)))] overflow-y-auto overscroll-contain rounded-t-2xl p-4 shadow-2xl safe-pb sm:mt-0 sm:max-h-[min(85vh,calc(100dvh-env(safe-area-inset-bottom,0px)-2rem))] sm:rounded-3xl sm:p-7"
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 40, opacity: 0 }}

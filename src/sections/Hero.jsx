@@ -33,9 +33,9 @@ const Typewriter = () => {
   }, [text, deleting, idx]);
 
   return (
-    <span style={{ color: "#FF8C00" }} className="font-semibold text-base sm:text-lg md:text-2xl px-1">
+    <span style={{ color: "#93c5fd" }} className="font-semibold text-base sm:text-lg md:text-2xl px-1">
       {text}
-      <span className="animate-blink" style={{ color: "#FF4D1A" }}>|</span>
+      <span className="animate-blink" style={{ color: "#3b82f6" }}>|</span>
     </span>
   );
 };
@@ -56,23 +56,23 @@ const Hero = () => {
         paddingTop: "max(4.5rem, calc(env(safe-area-inset-top, 0px) + 4rem))",
       }}
     >
-      {/* Background orbs — scaled down on narrow screens */}
+      {/* Background orbs — blue + soft white */}
       <div
-        className="absolute rounded-full pointer-events-none blur-3xl animate-aurora opacity-20 max-w-[100vw]"
+        className="absolute rounded-full pointer-events-none blur-3xl animate-aurora opacity-[0.18] max-w-[100vw]"
         style={{
           width: "min(600px, 140vw)",
           height: "min(600px, 140vw)",
-          background: "radial-gradient(circle, #FF4D1A, transparent 70%)",
+          background: "radial-gradient(circle, #2563eb, transparent 70%)",
           top: "5%",
           left: "-20%",
         }}
       />
       <div
-        className="absolute rounded-full pointer-events-none blur-3xl animate-aurora opacity-15 max-w-[100vw]"
+        className="absolute rounded-full pointer-events-none blur-3xl animate-aurora opacity-14 max-w-[100vw]"
         style={{
           width: "min(500px, 120vw)",
           height: "min(500px, 120vw)",
-          background: "radial-gradient(circle, #FF8C00, transparent 70%)",
+          background: "radial-gradient(circle, #3b82f6, transparent 70%)",
           bottom: "8%",
           right: "-15%",
           animationDelay: "-7s",
@@ -83,7 +83,7 @@ const Hero = () => {
         style={{
           width: "min(300px, 80vw)",
           height: "min(300px, 80vw)",
-          background: "radial-gradient(circle, #FFD700, transparent 70%)",
+          background: "radial-gradient(circle, #e2e8f0, transparent 70%)",
           top: "45%",
           left: "40%",
           animationDelay: "-12s",
@@ -91,18 +91,16 @@ const Hero = () => {
       />
 
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.022]"
+        className="absolute inset-0 pointer-events-none opacity-[0.04]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(255,77,26,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,77,26,1) 1px, transparent 1px)",
+            "linear-gradient(rgba(59,130,246,1) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,1) 1px, transparent 1px)",
           backgroundSize: "min(60px, 12vw) min(60px, 12vw)",
         }}
       />
 
-      {/* Main column: content grows, scroll sits at bottom in normal flow (no overlap on mobile) */}
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center w-full max-w-4xl mx-auto px-3 sm:px-4 py-4 sm:py-8 min-h-0">
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center w-full max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-3 sm:px-4 py-4 sm:py-8 min-h-0">
         <div className="flex w-full flex-col items-center text-center">
-          {/* Profile rings */}
           <motion.div
             className="relative mb-6 sm:mb-8"
             initial={{ opacity: 0, scale: 0.7 }}
@@ -112,7 +110,7 @@ const Hero = () => {
             <div
               className="absolute rounded-full animate-spin-slow"
               style={{
-                background: "conic-gradient(from 0deg, #FF4D1A, #FF8C00, #FFD700, #FF4D1A)",
+                background: "conic-gradient(from 0deg, #2563eb, #60a5fa, #e2e8f0, #2563eb)",
                 padding: "3px",
                 width: "calc(100% + 12px)",
                 height: "calc(100% + 12px)",
@@ -124,7 +122,7 @@ const Hero = () => {
             <div
               className="absolute rounded-full animate-spin-rev opacity-50"
               style={{
-                background: "conic-gradient(from 180deg, transparent 50%, #FF8C00 100%)",
+                background: "conic-gradient(from 180deg, transparent 50%, #93c5fd 100%)",
                 padding: "2px",
                 width: "calc(100% + 20px)",
                 height: "calc(100% + 20px)",
@@ -135,16 +133,20 @@ const Hero = () => {
             />
             <img
               src="/profile.jpg"
-              alt="Avi Chauhan"
-              className="relative z-10 h-32 w-32 sm:h-40 sm:w-40 md:h-44 md:w-44 rounded-full border-4 border-[#080808] object-cover"
+              alt="Portrait of Avi Chauhan"
+              width="176"
+              height="176"
+              fetchpriority="high"
+              decoding="async"
+              className="relative z-10 h-32 w-32 sm:h-40 sm:w-40 md:h-44 md:w-44 rounded-full border-4 border-[#030712] object-cover"
               onError={(e) => {
                 e.target.style.display = "none";
                 e.target.nextSibling.style.display = "flex";
               }}
             />
             <div
-              className="relative z-10 hidden h-32 w-32 sm:h-40 sm:w-40 md:h-44 md:w-44 items-center justify-center rounded-full border-4 border-[#080808] text-3xl sm:text-4xl font-bold"
-              style={{ background: "linear-gradient(135deg, #FF4D1A, #FF8C00)" }}
+              className="relative z-10 hidden h-32 w-32 sm:h-40 sm:w-40 md:h-44 md:w-44 items-center justify-center rounded-full border-4 border-[#030712] text-3xl sm:text-4xl font-bold text-white"
+              style={{ background: "linear-gradient(135deg, #2563eb, #60a5fa)" }}
             >
               AC
             </div>
@@ -152,7 +154,7 @@ const Hero = () => {
 
           <motion.div
             className="mb-4 flex items-center gap-2 rounded-full px-3 py-1.5 text-[10px] font-medium sm:mb-5 sm:text-xs"
-            style={{ border: "1px solid rgba(255,77,26,0.25)", color: "#FF8C00" }}
+            style={{ border: "1px solid rgba(59,130,246,0.35)", color: "#93c5fd" }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
@@ -191,9 +193,9 @@ const Hero = () => {
                 key={cert}
                 className="rounded-full px-2.5 py-1 text-[10px] leading-tight sm:px-3 sm:text-xs"
                 style={{
-                  color: "#FFD700",
-                  background: "rgba(255,215,0,0.08)",
-                  border: "1px solid rgba(255,215,0,0.28)",
+                  color: "#e2e8f0",
+                  background: "rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(148,163,184,0.25)",
                 }}
               >
                 ✦ {cert}
@@ -222,7 +224,6 @@ const Hero = () => {
             </a>
           </motion.div>
 
-          {/* Stats: 2×2 on mobile */}
           <motion.div
             className="mb-8 grid w-full max-w-md grid-cols-2 gap-2 sm:mb-10 sm:flex sm:max-w-none sm:flex-wrap sm:justify-center sm:gap-4"
             initial={{ opacity: 0, y: 20 }}
@@ -242,8 +243,8 @@ const Hero = () => {
             transition={{ delay: 1.2 }}
           >
             {[
-              { href: "https://github.com/chauhanavi21", icon: <FaGithub size={22} />, label: "GitHub", color: "#FF8C00" },
-              { href: "https://www.linkedin.com/in/avi-chauhan-1678a4204/", icon: <FaLinkedin size={22} />, label: "LinkedIn", color: "#FFD700" },
+              { href: "https://github.com/chauhanavi21", icon: <FaGithub size={22} />, label: "GitHub", color: "#60a5fa" },
+              { href: "https://www.linkedin.com/in/avi-chauhan-1678a4204/", icon: <FaLinkedin size={22} />, label: "LinkedIn", color: "#e2e8f0" },
             ].map(({ href, icon, label, color }) => (
               <a
                 key={label}
@@ -268,7 +269,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll hint: in document flow — stays above home indicator / thumb zone on phones */}
       <motion.div
         className="relative z-10 mt-auto flex flex-col items-center gap-1 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-2 text-gray-500 sm:pb-4"
         animate={{ y: [0, 6, 0] }}
@@ -277,7 +277,7 @@ const Hero = () => {
         <span className="text-[10px] tracking-widest uppercase sm:text-xs">Scroll</span>
         <div
           className="h-6 w-px sm:h-8"
-          style={{ background: "linear-gradient(to bottom, rgba(255,77,26,0.5), transparent)" }}
+          style={{ background: "linear-gradient(to bottom, rgba(59,130,246,0.55), transparent)" }}
         />
       </motion.div>
     </section>

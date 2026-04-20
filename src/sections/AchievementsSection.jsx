@@ -10,12 +10,12 @@ import certReact    from "../assets/certificates/frontend_developer_react.png";
 import certRotaract from "../assets/certificates/rotract.jpg";
 
 const achievements = [
-  { title: "AWS Certified Solutions Architect – Associate", date: "October 11, 2025", category: "AWS Certification", icon: "☁️", color: "#FF4D1A", image: certSAA,      details: "Validated ability to design, implement, and optimize secure, scalable, and highly available architectures on AWS. Covers EC2, S3, VPC, RDS, Lambda, and more." },
-  { title: "AWS Certified AI Practitioner (AIF-C01)",       date: "August 09, 2025",  category: "AWS Certification", icon: "🤖", color: "#FF8C00", image: certAIF,      details: "Scored 933/1000. Covered AI & ML fundamentals, generative AI, foundation models, responsible AI, and AI security & governance." },
-  { title: "AI Use Cases & Applications",                    date: "June 26, 2025",    category: "Course Certificate", icon: "💡", color: "#FFB347", image: certAIUse,   details: "Explored real-world applications of AI in finance, healthcare, education, and startups with a strong focus on practical problem-solving." },
-  { title: "Fundamentals of ML & AI",                       date: "June 04, 2025",    category: "Course Certificate", icon: "🧠", color: "#FFD700", image: certFund,    details: "Mastered core ML workflows, supervised vs unsupervised learning, model evaluation, and hands-on labs using AWS AI tools." },
-  { title: "Frontend Developer – React",                    date: "2025",             category: "Certification",      icon: "⚛️", color: "#FFA500", image: certReact,   details: "Certified in React development, covering modern frontend development practices, component architecture, state management, and building scalable web applications." },
-  { title: "Rotaract Club Volunteer",                       date: "2023 – 2024",      category: "Community",          icon: "🤝", color: "#FF6B35", image: certRotaract, details: "Served as Teach Director at Rotaract Club of Ahmedabad Eleos, contributing to 9+ volunteer projects focused on youth development and community education." },
+  { title: "AWS Certified Solutions Architect – Associate", date: "October 11, 2025", category: "AWS Certification", icon: "☁️", color: "#3b82f6", image: certSAA,      details: "Validated ability to design, implement, and optimize secure, scalable, and highly available architectures on AWS. Covers EC2, S3, VPC, RDS, Lambda, and more." },
+  { title: "AWS Certified AI Practitioner (AIF-C01)",       date: "August 09, 2025",  category: "AWS Certification", icon: "🤖", color: "#60a5fa", image: certAIF,      details: "Scored 933/1000. Covered AI & ML fundamentals, generative AI, foundation models, responsible AI, and AI security & governance." },
+  { title: "AI Use Cases & Applications",                    date: "June 26, 2025",    category: "Course Certificate", icon: "💡", color: "#818cf8", image: certAIUse,   details: "Explored real-world applications of AI in finance, healthcare, education, and startups with a strong focus on practical problem-solving." },
+  { title: "Fundamentals of ML & AI",                       date: "June 04, 2025",    category: "Course Certificate", icon: "🧠", color: "#e2e8f0", image: certFund,    details: "Mastered core ML workflows, supervised vs unsupervised learning, model evaluation, and hands-on labs using AWS AI tools." },
+  { title: "Frontend Developer – React",                    date: "2025",             category: "Certification",      icon: "⚛️", color: "#38bdf8", image: certReact,   details: "Certified in React development, covering modern frontend development practices, component architecture, state management, and building scalable web applications." },
+  { title: "Rotaract Club Volunteer",                       date: "2023 – 2024",      category: "Community",          icon: "🤝", color: "#93c5fd", image: certRotaract, details: "Served as Teach Director at Rotaract Club of Ahmedabad Eleos, contributing to 9+ volunteer projects focused on youth development and community education." },
 ];
 
 const fadeUp = {
@@ -28,12 +28,12 @@ const AchievementsSection = () => {
 
   return (
     <section id="achievements" className="relative py-16 sm:py-24 px-3 sm:px-4 overflow-x-hidden">
-      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full opacity-[0.07] pointer-events-none blur-3xl" style={{ background: "radial-gradient(circle, #FF4D1A, transparent 70%)" }} />
-      <div className="absolute top-0 left-0 w-72 h-72 rounded-full opacity-[0.06] pointer-events-none blur-3xl"   style={{ background: "radial-gradient(circle, #FFD700, transparent 70%)" }} />
+      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full opacity-[0.07] pointer-events-none blur-3xl" style={{ background: "radial-gradient(circle, #3b82f6, transparent 70%)" }} />
+      <div className="absolute top-0 left-0 w-72 h-72 rounded-full opacity-[0.06] pointer-events-none blur-3xl"   style={{ background: "radial-gradient(circle, #e2e8f0, transparent 70%)" }} />
 
       <div className="max-w-6xl mx-auto">
         <motion.div className="text-center mb-16" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-          <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#FF8C00" }}>Milestones</p>
+          <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#93c5fd" }}>Milestones</p>
           <h2 className="section-heading text-white">Certifications & <span className="gradient-text">Achievements</span></h2>
           <div className="section-divider" />
         </motion.div>
@@ -100,7 +100,7 @@ const AchievementsSection = () => {
 
               {selected.image && (
                 <div className="mb-4 rounded-2xl overflow-hidden border" style={{ borderColor: `${selected.color}20` }}>
-                  <img src={selected.image} alt={selected.title} className="w-full object-contain max-h-[55vh]" />
+                  <img src={selected.image} alt={selected.title} loading="lazy" decoding="async" className="w-full object-contain max-h-[55vh]" />
                 </div>
               )}
 

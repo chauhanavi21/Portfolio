@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
 import { HiMail, HiChatAlt2, HiUserGroup } from "react-icons/hi";
+import { useDocumentMeta } from "../hooks/useDocumentMeta";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -9,26 +10,34 @@ const fadeUp = {
 };
 
 const contactCards = [
-  { icon: <HiMail size={22} />,     title: "Email Me",       desc: "Best way to reach me directly. I typically respond within 24 hours.",             link: "mailto:chauhanavi843@gmail.com",                       label: "chauhanavi843@gmail.com",   color: "#FF4D1A" },
-  { icon: <HiChatAlt2 size={22} />, title: "Coffee Chat",    desc: "Open to virtual chats about tech, AI, or careers — let's connect.",               link: "https://www.linkedin.com/in/avi-chauhan-1678a4204/",  label: "Message on LinkedIn",       color: "#FF8C00" },
-  { icon: <HiUserGroup size={22} />, title: "Collaborations", desc: "Always interested in meaningful projects and ideas worth building.",               link: "https://www.linkedin.com/in/avi-chauhan-1678a4204/",  label: "Let's collaborate",         color: "#FFD700" },
+  { icon: <HiMail size={22} />,     title: "Email Me",       desc: "Best way to reach me directly. I typically respond within 24 hours.",             link: "mailto:chauhanavi843@gmail.com",                       label: "chauhanavi843@gmail.com",   color: "#3b82f6" },
+  { icon: <HiChatAlt2 size={22} />, title: "Coffee Chat",    desc: "Open to virtual chats about tech, AI, or careers — let's connect.",               link: "https://www.linkedin.com/in/avi-chauhan-1678a4204/",  label: "Message on LinkedIn",       color: "#60a5fa" },
+  { icon: <HiUserGroup size={22} />, title: "Collaborations", desc: "Always interested in meaningful projects and ideas worth building.",               link: "https://www.linkedin.com/in/avi-chauhan-1678a4204/",  label: "Let's collaborate",         color: "#e2e8f0" },
 ];
 
-const Contact = () => (
+const Contact = () => {
+  useDocumentMeta({
+    title: "Contact — Avi Chauhan",
+    description:
+      "Get in touch with Avi Chauhan. Open to projects, collaborations, and roles in software engineering and AI/ML.",
+    canonical: "https://chauhanavi.com/contact",
+  });
+
+  return (
   <div
     className="relative min-h-screen pb-12 sm:pb-16 px-3 sm:px-4 overflow-x-hidden"
     style={{ paddingTop: "max(5.5rem, calc(4rem + env(safe-area-inset-top, 0px) + 0.75rem))" }}
   >
     {/* Background orbs */}
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-64 opacity-[0.07] pointer-events-none blur-3xl"
-      style={{ background: "linear-gradient(90deg, #FF4D1A, #FF8C00, #FFD700)" }} />
+      style={{ background: "linear-gradient(90deg, #3b82f6, #60a5fa, #e2e8f0)" }} />
     <div className="absolute bottom-0 right-0 w-80 h-80 opacity-[0.07] pointer-events-none blur-3xl rounded-full"
-      style={{ background: "radial-gradient(circle, #FF4D1A, transparent 70%)" }} />
+      style={{ background: "radial-gradient(circle, #3b82f6, transparent 70%)" }} />
 
     <div className="max-w-5xl mx-auto">
       {/* Heading */}
       <motion.div className="text-center mb-14" variants={fadeUp} initial="hidden" animate="show">
-        <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#FF8C00" }}>Get in touch</p>
+        <p className="text-sm font-semibold tracking-widest uppercase mb-2" style={{ color: "#93c5fd" }}>Get in touch</p>
         <h1 className="section-heading text-white">Let's <span className="gradient-text">Connect</span></h1>
         <div className="section-divider" />
         <p className="text-gray-400 mt-5 text-sm max-w-md mx-auto leading-relaxed">
@@ -65,9 +74,9 @@ const Contact = () => (
             <p className="text-xs text-gray-500 mb-3 uppercase tracking-widest font-medium">Also find me on</p>
             <div className="flex gap-3 flex-wrap">
               {[
-                { href: "https://github.com/chauhanavi21",                      icon: <FaGithub size={17} />,   label: "GitHub",   color: "#FF8C00" },
-                { href: "https://www.linkedin.com/in/avi-chauhan-1678a4204/", icon: <FaLinkedin size={17} />, label: "LinkedIn", color: "#FFD700" },
-                { href: "mailto:chauhanavi843@gmail.com",                       icon: <FaEnvelope size={17} />, label: "Email",    color: "#FF4D1A" },
+                { href: "https://github.com/chauhanavi21",                      icon: <FaGithub size={17} />,   label: "GitHub",   color: "#60a5fa" },
+                { href: "https://www.linkedin.com/in/avi-chauhan-1678a4204/", icon: <FaLinkedin size={17} />, label: "LinkedIn", color: "#e2e8f0" },
+                { href: "mailto:chauhanavi843@gmail.com",                       icon: <FaEnvelope size={17} />, label: "Email",    color: "#3b82f6" },
               ].map(({ href, icon, label, color }) => (
                 <a
                   key={label}
@@ -108,9 +117,9 @@ const Contact = () => (
                 <input
                   name={name} type={type} placeholder={placeholder}
                   className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none transition-all"
-                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,77,26,0.14)" }}
-                  onFocus={(e) => (e.target.style.borderColor = "rgba(255,140,0,0.5)")}
-                  onBlur={(e)  => (e.target.style.borderColor = "rgba(255,77,26,0.14)")}
+                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(59,130,246,0.18)" }}
+                  onFocus={(e) => (e.target.style.borderColor = "rgba(96,165,250,0.55)")}
+                  onBlur={(e)  => (e.target.style.borderColor = "rgba(59,130,246,0.18)")}
                 />
               </div>
             ))}
@@ -120,9 +129,9 @@ const Contact = () => (
               <textarea
                 name="message" rows={5} placeholder="Tell me about your idea, project, or question..."
                 className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-gray-600 focus:outline-none transition-all resize-none"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,77,26,0.14)" }}
-                onFocus={(e) => (e.target.style.borderColor = "rgba(255,140,0,0.5)")}
-                onBlur={(e)  => (e.target.style.borderColor = "rgba(255,77,26,0.14)")}
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(59,130,246,0.18)" }}
+                onFocus={(e) => (e.target.style.borderColor = "rgba(96,165,250,0.55)")}
+                onBlur={(e)  => (e.target.style.borderColor = "rgba(59,130,246,0.18)")}
               />
             </div>
 
@@ -134,6 +143,7 @@ const Contact = () => (
       </div>
     </div>
   </div>
-);
+  );
+};
 
 export default Contact;
