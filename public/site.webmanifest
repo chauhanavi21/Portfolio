@@ -1,14 +1,13 @@
 {
-  "name": "Avi Chauhan — Portfolio",
+  "name": "Avi Chauhan | Portfolio",
   "short_name": "Avi Chauhan",
-  "description": "Software engineer, AWS Certified Solutions Architect, and AI/ML engineer.",
+  "description": "Software engineer and AWS Certified Solutions Architect.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "theme_color": "#030712",
-  "background_color": "#030712",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "icons": [
-    { "src": "/profile.jpg", "sizes": "192x192", "type": "image/jpeg", "purpose": "any" },
-    { "src": "/profile.jpg", "sizes": "512x512", "type": "image/jpeg", "purpose": "any" }
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
   ]
 }
